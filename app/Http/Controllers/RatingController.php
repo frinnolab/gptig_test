@@ -55,7 +55,8 @@ class RatingController extends Controller
 
     /**
      * Update the specified resource in storage.
-     */    public function update(Request $request, $id)
+     */    
+    public function update(Request $request, $id)
     {
         $request->validate([
             'rating' => 'required|integer|min:1|max:5',
@@ -87,7 +88,7 @@ class RatingController extends Controller
         return response()->json(['message' => 'Rating deleted.'], Response::HTTP_CREATED);
     }
 
-    public function productRatings()
+    public function productRatings(Request $request)
     {
 
         // dd("productRatings");
