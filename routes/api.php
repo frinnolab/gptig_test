@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 //Rating Controller to manage ratings for products by user.
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('/products/ratings', [RatingController::class, 'productRatings']);
+    // List ratings
     Route::post('/ratings', [RatingController::class, 'store']);      // rate
     Route::put('/ratings/{id}', [RatingController::class, 'update']); // update
     Route::delete('/ratings/{id}', [RatingController::class, 'destroy']); // remove

@@ -135,7 +135,7 @@ class RatingController extends Controller
             ->first();
 
         if ($existingRating) {
-            return response()->json(['message' => 'You have already rated this product.'], 400);
+            return response()->json(['message' => 'You have already rated this product.'], Response::HTTP_BAD_REQUEST);
         }
 
         // Create new rating
@@ -158,13 +158,13 @@ class RatingController extends Controller
             ->first();
 
         if (!$rating) {
-            return response()->json(['message' => 'No rating found to remove.'], 404);
+            return response()->json(['message' => 'No rating found to remove.'], Response::HTTP_NOT_FOUND);
         }
 
         // Delete the rating
         $rating->delete();
 
-        return response()->json(['message' => 'Rating removed successfully.'], 200);
+        return response()->json(['message' => 'Rating removed successfully.'], Response::HTTP_OK);
     }
 
     public function changeRating(Request $request, Product $product)
@@ -181,12 +181,12 @@ class RatingController extends Controller
             ->first();
 
         if (!$rating) {
-            return response()->json(['message' => 'No rating found to change.'], 404);
+            return response()->json(['message' => 'No rating found to change.'], Response::HTTP_NOT_FOUND);
         }
 
         // Update the rating
         $rating->update(['rating' => $request->rating]);
 
-        return response()->json(['message' => 'Rating updated successfully.'], 200);
+        return response()->json(['message' => 'Rating updated successfully.'], Response::HTTP_OK);
     }
 }
