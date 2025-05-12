@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\RatingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,3 +39,6 @@ Route::middleware('auth:sanctum')->group(function () {
     // List products with ratings
     Route::get('/products/ratings', [RatingController::class, 'productRatings']);
 });
+
+// Patient Controller to manage Patient registration.
+Route::post('/patient-registration', [PatientController ::class, 'registerPatient']);
