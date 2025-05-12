@@ -90,7 +90,7 @@ class RatingController extends Controller
     public function productRatings()
     {
 
-        dd("productRatings");
+        // dd("productRatings");
         $userId = Auth::id();
 
         $products = Product::with(['ratings' => function ($query) use ($userId) {
