@@ -4,6 +4,8 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\RatingController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -15,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+Route::post('/login', [AuthController::class, 'login']);
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -41,4 +45,4 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 // Patient Controller to manage Patient registration.
-Route::post('/patient-registration', [PatientController ::class, 'registerPatient']);
+Route::post('/patient-registration', [PatientController::class, 'registerPatient']);

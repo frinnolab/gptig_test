@@ -27,7 +27,7 @@ class PatientController extends Controller
             'email' => $request->email,
         ];
 
-        // Send the registration request to the external API (replace 'GPITG_API_URL' with the actual URL)
+        // Send the registration request to the external API 'GPITG_API_URL'
         try {
             $response = Http::post(env('GPITG_API_URL'), $registrationData);
 

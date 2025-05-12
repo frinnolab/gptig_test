@@ -12,9 +12,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\User::factory(5)->create();
-        \App\Models\Product::factory(10)->create();
-        \App\Models\UserRating::factory(10)->create(); // generate 10 ratings
+        // \App\Models\User::factory(5)->create();
+        // \App\Models\Product::factory(10)->create();
+        // \App\Models\UserRating::factory(10)->create(); // generate 10 ratings
+
+        $this->call(UserProfileSeeder::class);
     }
-    
 }
