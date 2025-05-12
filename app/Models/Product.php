@@ -14,4 +14,10 @@ class Product extends Model
         'description',
         'price',
     ];
+
+
+    public function ratings()
+    {
+        return $this->hasMany(UserRating::class);
+    }
 }
