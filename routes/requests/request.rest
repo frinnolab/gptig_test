@@ -1,0 +1,12 @@
+# POST http://127.0.0.1:8000/api/login HTTP/1.1
+# content-type: application/json
+
+# {
+#     "email": "testuser@test.com",
+#     "password": "password"
+# }
+
+#Ratings
+GET  http://127.0.0.1:8000/api/products/ratings HTTP/1.1
+content-type: application/json,
+Authorization: "Bearer 1|FqVOjMr1H9nnN75hgZJy4n1HuyNkGTV8Ns0aLnKP8e8ef19c"
