@@ -9,20 +9,20 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
         Schema::table('user_ratings', function (Blueprint $table) {
-            //
+            $table->unique(['user_id', 'product_id']);
         });
     }
 
     /**
      * Reverse the migrations.
      */
-    public function down(): void
+    public function down()
     {
         Schema::table('user_ratings', function (Blueprint $table) {
-            //
+            $table->dropUnique(['user_ratings_user_id_product_id_unique']);
         });
     }
 };
